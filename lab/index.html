@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Umud Alizada's NLP model evaluation dashboard. Compare BERT and DistilBERT on a graduate text classification experiment.">
+<title>Model Lab | Umud Alizada</title>
+<link rel="stylesheet" href="style.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<aside class="sidebar">
+<a class="brand" href="#overview"><span class="logo" aria-hidden="true">◈</span> Model Lab</a>
+<nav aria-label="Dashboard"><a href="#overview">Overview</a><a href="#comparison">Model comparison</a><a href="#method">Methodology</a></nav>
+<div class="profile"><strong>Umud Alizada</strong><span>MS Computer Science</span><a href="https://github.com/umudusa">GitHub ↗</a></div>
+</aside>
+<main id="overview">
+<header class="hero"><p class="eyebrow">UNIVERSITY OF BRIDGEPORT / NLP</p><h1>How do two BERT<br>models compare?</h1><p>A graduate text classification experiment comparing BERT and DistilBERT on held-out test data.</p><a href="#comparison" class="cta">Explore results <span aria-hidden="true">↓</span></a></header>
+<section class="stats" aria-label="Experiment summary">
+<article><span>Best test accuracy</span><strong>30.00%</strong><small>BERT base cased</small></article>
+<article><span>Best macro F1</span><strong>0.3045</strong><small>BERT base cased</small></article>
+<article><span>Training epochs</span><strong>15</strong><small>Per reported model</small></article>
+</section>
+<section class="panel" id="comparison" aria-labelledby="comparison-title">
+<div class="panel-head"><div><h2 id="comparison-title">Model comparison</h2><p id="metric-description">Share of test examples classified correctly.</p></div><div class="toggle" role="group" aria-label="Comparison metric"><button data-metric="accuracy" aria-pressed="true">Accuracy</button><button data-metric="f1" aria-pressed="false">Macro F1</button></div></div>
+<div id="chart" aria-live="polite">
+<div class="plot-row"><div class="row-label"><strong>BERT base cased</strong><span id="bert-value">30.00%</span></div><div class="track"><div class="bar bert" id="bert-bar"></div></div></div>
+<div class="plot-row"><div class="row-label"><strong>DistilBERT</strong><span id="distil-value">28.75%</span></div><div class="track"><div class="bar distil" id="distil-bar"></div></div></div>
+<div class="axis" id="axis" aria-hidden="true"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
+<p class="finding" id="finding">BERT led by 1.25 percentage points on test accuracy in this run.</p>
+</div>
+<details><summary>View exact scores</summary><div class="table-wrap"><table><thead><tr><th scope="col">Model</th><th scope="col">Test accuracy</th><th scope="col">Macro F1</th></tr></thead><tbody><tr><th scope="row">BERT base cased</th><td>30.00%</td><td>0.3045</td></tr><tr><th scope="row">DistilBERT</th><td>28.75%</td><td>0.2987</td></tr></tbody></table></div></details>
+</section>
+<section class="panel method" id="method" aria-labelledby="method-title"><h2 id="method-title">Methodology</h2><div class="method-grid">
+<div><h3>Training</h3><p>Extracted embeddings from pretrained models and trained a custom classifier for 15 epochs on CPU.</p></div>
+<div><h3>Evaluation</h3><p>Measured accuracy and macro F1 on the test split. Macro F1 gives each class equal weight.</p></div>
+<div><h3>Scope</h3><p>These scores describe one course experiment. Class-level results and repeated runs would help explain the gap.</p></div>
+</div></section>
+<footer><span>Umud Alizada · Graduate project</span><a href="#overview">Back to top ↑</a></footer>
+</main>
+</body>
+</html>
